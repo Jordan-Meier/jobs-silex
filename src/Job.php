@@ -17,10 +17,56 @@ class Job
 
     }
 
+    function setTitle($new_title)
+    {
+        $this->title = $new_title;
+    }
 
+    function getTitle()
+    {
+        return $this->title;
+    }
+
+    function setDescription($new_description)
+    {
+        $this->description = $new_description;
+    }
+
+    function getDescription()
+    {
+        return $this->description;
+    }
+
+    function setSalary($new_salary)
+    {
+        $this->salary = $new_salary;
+    }
+
+    function getSalary()
+    {
+        return $this->salary;
+    }
+
+    function setContactName($new_contact_name)
+    {
+        $this->contact_name = $new_contact_name;
+    }
+
+    function getContactName()
+    {
+        return $this->contact_name;
+    }
+
+    function setContactPhone($new_contact_phone)
+    {
+        $this->contact_phone = $new_contact_phone;
+    }
+
+    function getContactPhone()
+    {
+        return $this->contact_phone;
+    }
 }
-
-
 
 
 ?>
