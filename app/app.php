@@ -31,13 +31,18 @@
                                 <input id='salary' name='salary' class='form-control' type='text'>
                             </div>
                             <div class='form-group'>
-                                <label for='contact_name'>Enter Contact Name:</label>
-                                <input id='contact_name' name='contact_name' class='form-control' type='text'>
+                                <label for='name'>Enter Contact Name:</label>
+                                <input id='name' name='name' class='form-control' type='text'>
                             </div>
                             <div class='form-group'>
-                                <label for='contact_phone'>Enter Contact Phone #:</label>
-                                <input id='contact_phone' name='contact_phone' class='form-control' type='text'>
+                                <label for='email'>Enter Contact Email:</label>
+                                <input id='email' name='email' class='form-control' type='text'>
                             </div>
+                            <div class='form-group'>
+                                <label for='number'>Enter Contact Phone #:</label>
+                                <input id='number' name='number' class='form-control' type='text'>
+                            </div>
+
                             <button type='submit' class='btn-success'>Submit</button>
                         </form>
                     </div>
@@ -47,21 +52,27 @@
     });
 
     $app->get("/view_jobs", function () {
-        $my_job = new Job($_GET['title'], $_GET['description'], $_GET['salary'],  $_GET['contact_name'], $_GET['contact_phone']);
+        $new_contact = new Contact ($_GET['name'], $_GET['email'], $_GET['number']);
+        $my_job = new Job($_GET['title'], $_GET['description'], $_GET['salary'], $new_contact);
+        $current_contact = $my_job->getContact();
+
+        //the line below would over ride any inputted name with Bob
+        // $current_contact->setName("Bob");
+        
+        $contact_name = $current_contact->getName();
+        $contact_email = $current_contact->getEmail();
+        $contact_number = $current_contact->getNumber();
         $output= "<div class='row'>
                 <div class='col-md-6'>
                     <p>Job Title: " . $my_job->getTitle() . "</p>
                     <p>Job Description: " . $my_job->getDescription() . "</p>
                     <p>Salary: " . $my_job->getSalary() . "</p>
-                    <p>Contact Name: " . $my_job->getContactName() . "</p>
-                    <p>Contact Phone: " . $my_job->getContactPhone() . "</p>
+                    <p>Contact Name: " . $contact_name . "</p>
+                    <p>Contact Email: " . $contact_email . "</p>
+                    <p>Contact Phone #: " . $contact_number . "</p>
                 </div>
                 ";
         return $output;
-
-
-
-
 
     });
 
