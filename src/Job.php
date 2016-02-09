@@ -7,7 +7,8 @@ class Job
     private $contact;
 
 
-    function __construct($job_title, $job_description, $job_salary, $job_contact)
+    function __construct($job_title, $job_description, $job_salary,
+    $job_contact )
     {
         $this->title = $job_title;
         $this->description = $job_description;
