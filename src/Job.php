@@ -4,17 +4,14 @@ class Job
     private $title;
     private $description;
     private $salary;
-    private $contact_name;
-    private $contact_phone;
+    private $contact;
 
-    function __construct($job_title, $job_description, $job_salary, $job_contact_name, $job_contact_phone)
+    function __construct($job_title, $job_description, $job_salary, $job_contact)
     {
         $this->title = $job_title;
         $this->description = $job_description;
         $this->salary = $job_salary;
-        $this->contact_name = $job_contact_name;
-        $this->contact_phone = $job_contact_phone;
-
+        $this->contact = $contact;
     }
 
     function setTitle($new_title)
@@ -47,25 +44,17 @@ class Job
         return $this->salary;
     }
 
-    function setContactName($new_contact_name)
+
+    function setContact($new_contact)
     {
-        $this->contact_name = $new_contact_name;
+        $this->contact = $new_contact;
     }
 
-    function getContactName()
+    function getContact()
     {
-        return $this->contact_name;
+        return $this->contact;
     }
 
-    function setContactPhone($new_contact_phone)
-    {
-        $this->contact_phone = $new_contact_phone;
-    }
-
-    function getContactPhone()
-    {
-        return $this->contact_phone;
-    }
 }
 
 
