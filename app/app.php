@@ -48,11 +48,11 @@
         $my_job = new Job($_GET['title'], $_GET['description'], $_GET['salary'],  $_GET['contact_name'], $_GET['contact_phone']);
         $output= "<div class='row'>
                 <div class='col-md-6'>
-                    <p>Job Title: " . $_GET['title'] . "</p>
-                    <p>Job Description: " . $_GET['description'] . "</p>
-                    <p>Salary: " . $_GET['salary'] . "</p>
-                    <p>Contact Name: " . $_GET['contact_name'] . "</p>
-                    <p>Contact Phone: " . $_GET['contact_phone'] . "</p>
+                    <p>Job Title: " . $my_job->getTitle() . "</p>
+                    <p>Job Description: " . $my_job->getDescription() . "</p>
+                    <p>Salary: " . $my_job->getSalary() . "</p>
+                    <p>Contact Name: " . $my_job->getContactName() . "</p>
+                    <p>Contact Phone: " . $my_job->getContactPhone() . "</p>
                 </div>
                 ";
         return $output;
